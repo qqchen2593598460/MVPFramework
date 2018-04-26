@@ -33,7 +33,7 @@ public class MainActivity extends BaseActivity {
     private static final int REQUEST_CODE_UPGRADE = 10;
     private LayoutInflater layoutInflater ;
     private FragmentTabHost mTabHost;
-    private final Class[] fragmentArray = {HomeFragment.class,DiscoveryFragment.class,MessageFragment.class,MeFragment.class};
+    private final Class[] fragmentArray = {HomeFragment.class,MessageFragment.class,MeFragment.class};
     private static Boolean isExit = false;
 
 
@@ -73,25 +73,22 @@ public class MainActivity extends BaseActivity {
                 }
             }
 
-            mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-                @Override
-                public void onTabChanged(String arg0) {
-                    for (int i =0; i < mTabHost.getTabWidget().getChildCount(); i++) {
-                        View v = mTabHost.getTabWidget().getChildAt(i);
-                        TextView tv=(TextView)v.findViewById(R.id.tv_tab_des);
-                        if(mTabHost.getCurrentTab()==i){
-                            tv.setTextColor(getResources().getColor(R.color.text_main_color));
-                        }
-                        else {
-                            tv.setTextColor(getResources().getColor(R.color.black_AAA));
-                        }
+            mTabHost.setOnTabChangedListener(arg0 -> {
+                for (int i =0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+                    View v = mTabHost.getTabWidget().getChildAt(i);
+                    TextView tv=(TextView)v.findViewById(R.id.tv_tab_des);
+                    if(mTabHost.getCurrentTab()==i){
+                        tv.setTextColor(getResources().getColor(R.color.text_main_color));
                     }
-                    // 首页和我的界面状态栏字体默认是白色的
-                    if (mTabHost.getCurrentTab() == 0 || mTabHost.getCurrentTab() == 3) {
-                        transStatusBar(false);
-                    } else {
-                        transStatusBar(true);
+                    else {
+                        tv.setTextColor(getResources().getColor(R.color.black_AAA));
                     }
+                }
+                // 首页和我的界面状态栏字体默认是白色的
+                if (mTabHost.getCurrentTab() == 0 || mTabHost.getCurrentTab() == 3) {
+                    transStatusBar(false);
+                } else {
+                    transStatusBar(true);
                 }
             });
         }
@@ -119,8 +116,7 @@ public class MainActivity extends BaseActivity {
                         PermissionEnum.READ_PHONE_STATE,
                         PermissionEnum.ACCESS_COARSE_LOCATION,
                         PermissionEnum.CAMERA,
-                        PermissionEnum.READ_CONTACTS,
-                        PermissionEnum.RECORD_AUDIO)
+                        PermissionEnum.READ_CONTACTS)
                 .callback(allPermissionsGranted -> {
                     if (!allPermissionsGranted) {
                         Toasty.info(MainActivity.this, "请在设置中开启权限", Toast.LENGTH_SHORT).show();

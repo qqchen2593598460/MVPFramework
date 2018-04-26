@@ -1,4 +1,4 @@
-package com.fif.campus;
+package com.fif.iclass;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.fif.campus", appContext.getPackageName());
+        assertEquals("com.fif.iclass", appContext.getPackageName());
     }
 }

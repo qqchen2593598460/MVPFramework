@@ -48,7 +48,7 @@ public class SoftwareUpdateActivity extends AppCompatActivity implements View.On
     private static final int MSG_DOWNLOAD_NOT_ENOUTH_SPACE = 4; // sd卡空间不足
 
 
-    private static final String APK_NAME = "fifCampus.apk";
+    private static final String APK_NAME = "fifIclass.apk";
     /** 更新弹窗2种样式, 按钮和进度条 */
     private LinearLayout uploadLayoutButton, uploadLayoutProgress;
     /** 更新Content，Title */

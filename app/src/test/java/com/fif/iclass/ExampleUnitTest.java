@@ -1,4 +1,4 @@
-package com.fif.campus;
+package com.fif.iclass;
 
 import org.junit.Test;
 

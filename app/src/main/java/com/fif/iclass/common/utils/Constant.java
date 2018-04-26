@@ -12,11 +12,10 @@ public class Constant {
     public static final class ConValue {
 
         public static int mAppText[] = {R.string.app_home,
-                R.string.app_discovery, R.string.app_message, R.string.app_me};
-        public static int mImageViewArray[] = { R.drawable.selector_btn_tab_home,
-                R.drawable.selector_btn_tab_discovery, R.drawable.selector_btn_tab_message,R.drawable.selector_btn_tab_me, };
+                R.string.app_message, R.string.app_me};
+        public static int mImageViewArray[] = { R.drawable.selector_btn_tab_home,R.drawable.selector_btn_tab_message,R.drawable.selector_btn_tab_me, };
         public static int mTabText[] = {R.string.home,
-                R.string.discovery, R.string.message, R.string.me};
+                 R.string.message, R.string.me};
     }
 
     public static final class ConLineState {
