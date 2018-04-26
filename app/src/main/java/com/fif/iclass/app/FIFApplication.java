@@ -59,8 +59,6 @@ public class FIFApplication extends Application {
         initPath();
         //初始化日志工具
         //initCrash();
-        //初始化百度定位服务
-        initBDLocation();
         //工具类
         Utils.init(getApplicationContext());
         //初始化dialog，toast
@@ -91,10 +89,6 @@ public class FIFApplication extends Application {
         //初始化数据库
         DaoMaster.DevOpenHelper dbHelper = new DaoMaster.DevOpenHelper(this, Constant.DB_NAME, null);
         daoMaster = new DaoMaster(dbHelper.getWritableDatabase());
-        //初始化讯飞声纹和人脸识别
-        // 应用程序入口处调用,避免手机内存过小，杀死后台进程,造成SpeechUtility对象为null
-        // 设置你申请的应用appid
-        SpeechUtility.createUtility(this, "appid=" + "590c5278");
         //初始化友盟+消息推送
         PushAgent mPushAgent = PushAgent.getInstance(this);
         mPushAgent.setDebugMode(true);
@@ -199,27 +193,6 @@ public class FIFApplication extends Application {
                 return new UserVO();
             }
         }
-    }
-
-    /**
-     * 初始化百度定位服务
-     */
-    private void initBDLocation() {
-        locationService = new LocationService(getApplicationContext());
-        mVibrator = (Vibrator) getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
-        SDKInitializer.initialize(getApplicationContext());
-    }
-
-    /**
-     * 获取百度地图定位服务
-     *
-     * @return 定位服务
-     */
-    public LocationService getLocationService() {
-        if (locationService == null) {
-            locationService = new LocationService(getApplicationContext());
-        }
-        return locationService;
     }
 
     /**
