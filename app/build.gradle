@@ -1,0 +1,113 @@
+//声明构建的项目类型
+//noinspection GradleDependency
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin(greenDAO)
+//设置编译android项目的参数
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    //Java 的版本配置
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    defaultConfig {
+        applicationId "com.fif.iclass"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions {
+            enabled true
+        }
+        //只支持中文
+        resConfigs"zh"
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    //构建设置
+    buildTypes {
+        debug {
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            versionNameSuffix "-debug"
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            multiDexEnabled true
+            //清单文件配置
+            manifestPlaceholders = [BAIDU_KEY_VALUE: "7RWKF8GtHoAXEbGoTwOZfl28MdEX4H0i",
+                                    UMENG_APPKEY:"59c9f77a310c932db3000093",
+                                    UMENG_MESSAGE_SECRET:"12da540bf78bc373cbe89aab67b70573"
+            ]
+        }
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            //混淆
+            minifyEnabled false
+            //Zipalign优化
+            zipAlignEnabled true
+            //分包
+            multiDexEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            manifestPlaceholders = [BAIDU_KEY_VALUE: "At9vlVi7hD2IBGAYTApm59trfFRjpska"]
+            minifyEnabled false
+            //混淆
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    //渠道包
+    productFlavors {
+        qh360 {
+            //applicationId = '包名'
+        }
+        tencent{}
+        update{}
+        vivo{}
+        oppo{}
+    }
+    //友盟渠道包名称
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    //解决Android Studio出现GC overhead limit exceeded
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+    lintOptions {
+        //jenkins
+        abortOnError false
+    }
+}
+//数据库设置
+greendao {
+    schemaVersion 1
+    daoPackage 'greendao'
+    targetGenDir 'src/main/java'
+}
+//依赖包的定义。支持maven/ivy，远程，本地库，也支持单文件
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile project(':baselib')
+    //控件注解
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+}
+repositories {
+    //支持java 依赖库管理（maven/ivy）,用于项目的依赖。从中央库里面获取依赖
+    mavenCentral()
+}

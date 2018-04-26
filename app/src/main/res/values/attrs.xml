@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--饼状图-->
+    <declare-styleable name="MoaChartView">
+        <attr name="animation" format="boolean"/>
+        <attr name="round" format="boolean" />
+        <attr name="shadow" format="boolean" />
+        <attr name="showTitle" format="boolean" />
+        <attr name="shadowColor" format="color" />
+        <attr name="chart_background" format="color" />
+        <attr name="isDisperse" format="boolean"/> <!--是否显示扇形的分割线-->
+        <attr name="spliteLineStroke" format="dimension"/><!--分割线的大小-->
+        <attr name="isMarkShow" format="boolean"/><!--是否显示标注-->
+        <attr name="circle_padding" format="dimension"/>
+        <attr name="mark_text_size" format="dimension"/>
+        <attr name="disperse_length" format="dimension"/>
+    </declare-styleable>
+    <!--indicator-->
+    <declare-styleable name="MyIndicator">
+        <attr name="indicator_height" format="dimension" />
+        <attr name="indicator_bottom_line_color" format="color" />
+        <attr name="indicator_bottom_line_height" format="dimension" />
+        <attr name="indicator_bottom_height" format="dimension" />
+        <attr name="indicator_textSize" format="dimension" />
+        <attr name="indicator_select_textSize" format="dimension" />
+        <attr name="indicator_vertical_line_w" format="dimension" />
+        <attr name="indicator_vertical_line_h" format="dimension" />
+        <attr name="indicator_width" format="dimension" />
+        <attr name="indicator_selected_color" format="color" />
+        <attr name="indicator_normal_color" format="color" />
+        <attr name="indicator_line_color" format="color" />
+        <attr name="indicator_vertical_line_color" format="color" />
+        <attr name="indicator_isBottom_line" format="boolean" />
+    </declare-styleable>
+    <!-- CircleImageView -->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <!-- {@deprecated Use civ_circlebackground_color instead.} -->
+        <attr name="civ_fill_color" format="color" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">baselib</string>
+    <string name="error_toast">很抱歉，程序出现异常，即将退出。</string>
+    <string name="dialog_default_title">Here\'s a message!</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="LOADING">Loading...</string>
+    <string name="toast_message">Toast message</string>
+</resources>

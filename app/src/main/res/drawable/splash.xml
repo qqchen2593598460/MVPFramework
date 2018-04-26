@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <bitmap android:src="@mipmap/img_splash"
+            >
+        </bitmap>
+    </item>
+<!--    <item
+        android:top="@dimen/splash_logo_marginTop">
+        <bitmap
+            android:gravity="top"
+            android:src="@mipmap/splash_logo">
+        </bitmap>
+    </item>
+    <item
+        android:bottom="80dp">
+        <bitmap
+            android:gravity="bottom"
+            android:src="@mipmap/splash_word">
+        </bitmap>
+    </item>-->
+</layer-list>

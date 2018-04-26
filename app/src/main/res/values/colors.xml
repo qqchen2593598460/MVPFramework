@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0090ff</color>
+    <color name="colorPrimaryDark">#eea0d0f1</color>
+    <color name="colorAccent">#ffa0d0f1</color>
+    <color name="background">#a0d0f1</color>
+    <!--app main color -->
+    <color name="text_main_color">#0090ff</color>
+    <color name="main_color">#0090ff</color>
+    <color name="main_pressed_color">#007acc</color>
+    <color name="main_color_accent">#c1d4ec</color>
+    <color name="main_color_ripple">#dde6f1</color>
+    <color name="gray_light">#EFEFF4</color>
+    <!-- text color -->
+    <color name="black_444">#444444</color>
+    <color name="black_222">#222222</color>
+    <color name="black_AAA">#AAAAAA</color>
+    <!--chart color-->
+    <color name="chart_late">#FFF39C12</color>
+    <color name="chart_ask_for_leave">#FF3498DB</color>
+    <color name="chart_had_attend">#FFB0D06A</color>
+    <color name="chart_no_attend">#FFEF6262</color>
+    <color name="score_red">#FFF06262</color>
+
+    <!-- 基本颜色 -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>
